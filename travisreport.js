@@ -10,13 +10,6 @@ $(document).ready(function(){
 	travisAPIUrl = "https://api.travis-ci.org/builds/" + travisBuildNumber;
 	travisData = null
 
-	console.log(travisUrl);
-
-	//$("head").append("<meta>Access-Control-Allow-Origin: *</meta>")
-	
-	$(".discussion-timeline-actions").last().prepend('<iframe src="' + travisUrl + '" width="100%" height="4000" frameborder="0" scrolling="no"></iframe>');
-	console.log("working");
-
 	var jsonResponse = null;
 
 
@@ -40,17 +33,12 @@ $(document).ready(function(){
 	     }
       });
 
-
-
-	// $.get(travisAPIUrl, requestData ,function(data, status) {
-	// 	console.log(data);
-	// 	for (var build in jsonResponse['jobs']) {
-	// 		console.log(build['env'] + "  |  " + build['state']);
-	// 	}
-
-	// })
-	console.log('test');
-
-
-
+		$(".discussion-timeline-actions").last().prepend(
+			`<div class="timeline-comment-wrapper">
+				<img alt="TravisReport" class="timeline-comment-avatar" height="44" src="http://i.imgur.com/4AygYtP.png" width="44"> 
+				<div class="branch-action-body simple-box">
+					<h1>INSERT TRAVIS HERE</h1>
+				</div>
+			</div>`
+			);
 });
