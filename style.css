@@ -4,7 +4,7 @@
 }
 
 #travis-report .passed{
-	color: green;
+	color: lightgreen;
 }
 
 #travis-report .failed{
