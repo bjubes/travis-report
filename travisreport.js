@@ -32,7 +32,7 @@ $(document).ready(function(){
 				`<div class="timeline-comment-wrapper">
 					<img alt="TravisReport" class="timeline-comment-avatar" height="44" src="https://i.imgur.com/4AygYtP.png" width="44"> 
 					<div class="branch-action-body simple-box">
-						<h1>INSERT TRAVIS HERE</h1>
+						<p>The following builds have failed:<p>
 						<table id="travis-report" class="table table-hover">
 						</table>
 					</div>
@@ -43,7 +43,6 @@ $(document).ready(function(){
 				`<tr>
 				    <th>Job</th>
 				    <th>Status</th>
-				    <th>Country</th>
 				</tr>`
 			);
 
@@ -51,7 +50,7 @@ $(document).ready(function(){
 				console.log("test");
 				tdata = travisData[i];
 				$("#travis-report").append(
-					'<a href="' + travisJobsBaseUrl + data["job_id"] + '"><tr><th>' + tdata["job"] + '</th> <th>' + tdata["state"] + '</th> <th>Country</th> </tr></a>'
+					'<tr href="' + travisJobsBaseUrl + data["job_id"] + '" class="' + tdata["state"]+ '"><th><a href="' + travisJobsBaseUrl + tdata["job_id"] +'">' + tdata["job"] + '</th> <th>' + tdata["state"] + '</tr>'
 				)
 			}
 
@@ -59,4 +58,16 @@ $(document).ready(function(){
 	    //anything beyond this has no access to ajax response.
     });
 	
+   $('.tr-link').click(function() {
+        var href = $(this).attr("href");
+        if(href) {
+            window.location = href;
+        }
+    });
+
+	function GetState(string) {
+		if (string == "passed") {
+			return "success";
+		}
+	}
 });

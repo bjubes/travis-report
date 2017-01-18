@@ -13,7 +13,8 @@
   "content_scripts": [
     {
       "matches": ["*://github.com/*"],
-      "js": ["jquery.js", "travisreport.js"]
+      "js": ["jquery.js", "travisreport.js"],
+      "css": ["style.css"]
     }
   ]
 }
