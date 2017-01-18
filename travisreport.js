@@ -22,17 +22,30 @@ $(document).ready(function(){
 	    success: function(data) {
 			jsonResponse = data //JSON.parse(data);
 			console.log(data);				
+		
+			var failedBuild = false;
 			for (var i = 0; i < jsonResponse['jobs'].length; i++) {
 				console.log(data['jobs'][i]['config']['env'] + "  |  " + data['jobs'][i]['state']);
 				travisData[i] = {job: data['jobs'][i]['config']['env'], state: data['jobs'][i]['state'], job_id: data["build"]["job_ids"][i]}
+				
+				if (data['jobs'][i]['state'] != "passed") {
+					failedBuild = true;
+				}
+				
+
 			}
 			console.log(travisData);
+
+			//end script if there is no failed builds
+			if (!failedBuild) {
+					return;
+			}
 
 			$(".discussion-timeline-actions").last().prepend(
 				`<div class="timeline-comment-wrapper">
 					<img alt="TravisReport" class="timeline-comment-avatar" height="44" src="https://i.imgur.com/4AygYtP.png" width="44"> 
 					<div class="branch-action-body simple-box">
-						<p>The following builds have failed:<p>
+						<p>One or more tests have failed:<p>
 						<table id="travis-report" class="table table-hover">
 						</table>
 					</div>
@@ -64,10 +77,4 @@ $(document).ready(function(){
             window.location = href;
         }
     });
-
-	function GetState(string) {
-		if (string == "passed") {
-			return "success";
-		}
-	}
 });
