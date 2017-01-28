@@ -6,14 +6,14 @@
     "tabs", "storage", "*://github.com/*",
     "*://travis-ci.org/*", "*://travis-ci.com/*"
   ],
- "icons": { "16": "icon.png",
-           "48": "icon.png",
-          "128": "icon.png" },
-  "options_page": "options.html",
+ "icons": { "16": "images/icon.png",
+           "48": "images/icon.png",
+          "128": "images/icon.png" },
+  "options_page": "options/options.html",
   "content_scripts": [
     {
       "matches": ["*://github.com/*"],
-      "js": ["jquery.js", "travisreport.js"],
+      "js": ["frameworks/jquery.js", "travisreport.js"],
       "css": ["style.css"]
     }
   ]
