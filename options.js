@@ -24,7 +24,13 @@ function restore_options() {
   });
 }
 
+function close_page() {
+  window.close();
+}
+
 // Hook up functions to options page
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click',
     save_options);
+document.getElementById('close').addEventListener('click',
+    close_page);
