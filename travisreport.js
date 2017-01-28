@@ -1,14 +1,19 @@
 $(document).ready(function(){
 
 	var travisUrl = $("td").find(".commit-build-statuses").last().find("a").attr("href");
-	// for now just hardcode it in
-	travisBuildNumber = travisUrl.replace(/\D+/g, "");
+	travisBuildNumber = travisUrl.match(/\d+/g);
 	travisAPIUrl = "https://api.travis-ci.org/builds/" + travisBuildNumber;
 	travisJobsBaseUrl = "https://travis-ci.org/TeamPorcupine/ProjectPorcupine/jobs/";
 	travisData = [];
 
 	var jsonResponse = null;
-
+	var skipIfPassing = true;
+	//request settings from chrome
+	chrome.storage.sync.get({
+	  failedOnly: true
+	}, function(settings) {
+		skipIfPassing = settings.failedOnly;
+	});
 
 	$.ajax({
          url: travisAPIUrl,
@@ -36,16 +41,17 @@ $(document).ready(function(){
 			}
 			console.log(travisData);
 
-			//end script if there is no failed builds
-			if (!failedBuild) {
+			//end script if there is no failed builds and failed only is selected as an option
+			if (!failedBuild && skipIfPassing) {
 					return;
 			}
+			var message =  failedBuild ? "One or more tests have failed:" : "Everythings looking good!"
 
 			$(".discussion-timeline-actions").last().prepend(
 				`<div class="timeline-comment-wrapper">
 					<img alt="TravisReport" class="timeline-comment-avatar" height="44" src="https://i.imgur.com/4AygYtP.png" width="44"> 
 					<div class="branch-action-body simple-box">
-						<p>One or more tests have failed:<p>
+						<p>` + message + `<p>
 						<table id="travis-report" class="table table-hover">
 						</table>
 					</div>
