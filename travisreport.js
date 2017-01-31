@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
 	var travisUrl = $("td").find(".commit-build-statuses").last().find("a").attr("href");
-	travisBuildNumber = travisUrl.match(/\d+/g);
-	travisAPIUrl = "https://api.travis-ci.org/builds/" + travisBuildNumber;
-	travisJobsBaseUrl = "https://travis-ci.org/TeamPorcupine/ProjectPorcupine/jobs/";
-	travisData = [];
+	var travisBuildNumber = travisUrl.match(/\d+/g);
+	var travisAPIUrl = "https://api.travis-ci.org/builds/" + travisBuildNumber;
+	var travisJobsBaseUrl = "https://travis-ci.org/TeamPorcupine/ProjectPorcupine/jobs/";
+	var travisData = [];
 
 	var jsonResponse = null;
 	var skipIfPassing = true;
