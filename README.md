@@ -1,5 +1,5 @@
 # Travis Report
-A google chrome extension that shows which environment failed for a github PR.
+A google chrome extension that shows the status of each travis environment for a github PR.
 
 ##Installation
 1. Install Google Chrome and unzip travis-report
@@ -8,8 +8,8 @@ A google chrome extension that shows which environment failed for a github PR.
 4. Enable Travis Report
 
 ##How it works
-On any failing Github PR that uses travis for integration testing, Travis Report will give a rundown of each Enivronment and whether it it is failing or not. This allows users to see what has failed without ever leaving Github. Clicking an environment goes straight to its build page.
+On any Github PR that uses travis for integration testing, Travis Report will give a rundown of each Enivronment and whether it it is failing or not. This allows users to see what has failed without ever leaving Github. Clicking an environment goes straight to its build page.
 
-![Travis Report](http://i.imgur.com/sxxb42z.png)
+![Travis Report](http://i.imgur.com/avA8qNp.png)
 
 Note: Travis Report is in no way affiliated with Travis CI nor Github.
