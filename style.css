@@ -16,6 +16,13 @@
 	color: red;
 }
 
+.travis-report-header {
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-top: -15px; !important /* this actually gets set in pure html*/
+}
+
+
 /*from boostrap*/
 .table {
   width: 100%;

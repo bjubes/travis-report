@@ -50,10 +50,11 @@ $(document).ready(function(){
 			$(".discussion-timeline-actions").last().prepend(
 				`<div class="timeline-comment-wrapper">
 					<img alt="TravisReport" class="timeline-comment-avatar" height="44" src="https://i.imgur.com/4AygYtP.png" width="44"> 
-					<div class="file branch-action-body simple-box markdown-body comment timeline-comment timeline-new-comment">
+					<div class="branch-action-body simple-box markdown-body comment timeline-comment timeline-new-comment">
 
-					<div class="timeline-comment-header">
-						<span class="timeline-comment-label tooltipped tooltipped-multiline tooltipped-s" aria-label="I am a robot. Bee Boop.">
+					<div class="timeline-comment-header travis-report-header" style="
+					    margin-top: -15px !important;
+					">						<span class="timeline-comment-label tooltipped tooltipped-multiline tooltipped-s" aria-label="I am a robot. Bee Boop.">
       Travis Report
     </span>
     					<div class="timeline-comment-header-text">
@@ -101,6 +102,8 @@ $(document).ready(function(){
             window.location = href;
         }
     });
+
+
 });
 
 function YesorNo (bool) {
