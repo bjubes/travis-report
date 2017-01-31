@@ -31,7 +31,7 @@ $(document).ready(function(){
 			var failedBuild = false;
 			for (var i = 0; i < jsonResponse['jobs'].length; i++) {
 				console.log(data['jobs'][i]['config']['env'] + "  |  " + data['jobs'][i]['state']);
-				travisData[i] = {job: data['jobs'][i]['config']['env'], state: data['jobs'][i]['state'], job_id: data["build"]["job_ids"][i]}
+				travisData[i] = {job: data['jobs'][i]['config']['env'], state: data['jobs'][i]['state'], job_id: data["build"]["job_ids"][i], allow_failure: data["jobs"][i].allow_failure}
 				
 				if (data['jobs'][i]['state'] != "passed") {
 					failedBuild = true;
@@ -50,7 +50,7 @@ $(document).ready(function(){
 			$(".discussion-timeline-actions").last().prepend(
 				`<div class="timeline-comment-wrapper">
 					<img alt="TravisReport" class="timeline-comment-avatar" height="44" src="https://i.imgur.com/4AygYtP.png" width="44"> 
-					<div class="branch-action-body simple-box">
+					<div class="branch-action-body simple-box markdown-body">
 						<p>` + message + `<p>
 						<table id="travis-report" class="table table-hover">
 						</table>
@@ -62,6 +62,7 @@ $(document).ready(function(){
 				`<tr>
 				    <th>Job</th>
 				    <th>Status</th>
+				    <th>Optional</th>
 				</tr>`
 			);
 
@@ -69,7 +70,7 @@ $(document).ready(function(){
 				console.log("test");
 				tdata = travisData[i];
 				$("#travis-report").append(
-					'<tr href="' + travisJobsBaseUrl + data["job_id"] + '" class="' + tdata["state"]+ '"><th><a href="' + travisJobsBaseUrl + tdata["job_id"] +'">' + tdata["job"] + '</th> <th>' + tdata["state"] + '</tr>'
+					'<tr href="' + travisJobsBaseUrl + data["job_id"] + '"><th><a href="' + travisJobsBaseUrl + tdata["job_id"] +'">' + tdata["job"] + '</th> <th class="' + tdata["state"] + '">' + tdata["state"] + '</th> <th>' + YesorNo(tdata["allow_failure"]) + '</th></tr>'
 				)
 			}
 
@@ -84,3 +85,12 @@ $(document).ready(function(){
         }
     });
 });
+
+function YesorNo (bool) {
+	if (bool) {
+		return "Yes";
+	}
+	else {
+		return "No";
+	}
+}
