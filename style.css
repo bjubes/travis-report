@@ -22,6 +22,9 @@
   margin-top: -15px; !important /* this actually gets set in pure html*/
 }
 
+#travis-report-msg {
+  margin-top: 12px;
+}
 
 /*from boostrap*/
 .table {

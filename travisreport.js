@@ -49,7 +49,7 @@ $(document).ready(function(){
 
 			$(".discussion-timeline-actions").last().prepend(
 				`<div class="timeline-comment-wrapper">
-					<img alt="TravisReport" class="timeline-comment-avatar" height="44" src="https://i.imgur.com/4AygYtP.png" width="44"> 
+					<img alt="TravisReport" class="timeline-comment-avatar" height="44" src="//i.imgur.com/ys0fq1b.png" width="44"> 
 					<div class="branch-action-body simple-box markdown-body comment timeline-comment timeline-new-comment">
 
 					<div class="timeline-comment-header travis-report-header" style="
@@ -69,7 +69,7 @@ $(document).ready(function(){
 
 
 
-						<p>` + message + `<p>
+						<p id="travis-report-msg">` + message + `<p>
 						<table id="travis-report" class="table table-hover">
 						</table>
 					</div>
