@@ -50,34 +50,7 @@ $(document).ready(function(){
 			}
 			var message =  failedBuild ? "One or more tests have failed:" : "Everythings looking good!"
 
-			$(".discussion-timeline-actions").last().prepend(
-				`<div class="timeline-comment-wrapper">
-					<img alt="TravisReport" class="timeline-comment-avatar" height="44" src="https://raw.githubusercontent.com/bjubes/travis-report/master/images/icon.png" width="44"> 
-					<div class="branch-action-body simple-box markdown-body comment timeline-comment timeline-new-comment">
-
-					<div class="timeline-comment-header travis-report-header" style="
-					    margin-top: -15px !important;
-					">						<span class="timeline-comment-label tooltipped tooltipped-multiline tooltipped-s" aria-label="I am a robot. Bee Boop.">
-      Travis Report
-    </span>
-    					<div class="timeline-comment-header-text">
-
-    <strong>
-     Travis Report 
-    </strong>
-					</div>
-					</div>
-
-					
-
-
-
-						<p id="travis-report-msg">` + message + `<p>
-						<table id="travis-report" class="table table-hover">
-						</table>
-					</div>
-				</div>`
-			);
+			$(".discussion-timeline-actions").last().prepend(outerHTML(message));
 
 			$("#travis-report").append(
 				`<tr>
@@ -125,3 +98,35 @@ function NewTabLink(newTab) {
 		return "";
 	}
 }
+
+
+/////HTML
+
+function outerHTML(message) {
+	return `
+<div class="timeline-comment-wrapper">
+	<img alt="TravisReport" class="timeline-comment-avatar" height="44" src="https://raw.githubusercontent.com/bjubes/travis-report/master/images/icon.png" width="44"> 
+	<div class="branch-action-body simple-box markdown-body comment timeline-comment timeline-new-comment">
+		<div class="timeline-comment-header travis-report-header" style="margin-top: -15px !important;">
+			<span class="timeline-comment-label tooltipped tooltipped-multiline tooltipped-s" aria-label="I am a robot. Bee Boop.">Travis Report</span>
+    		<div class="timeline-comment-header-text">
+			    <strong>
+			     Travis Report 
+			    </strong>
+			</div>
+		</div>
+		<p id="travis-report-msg">` + message + `<p>
+		<table id="travis-report" class="table table-hover">
+		</table>
+	</div>
+</div>
+`;
+}
+
+
+
+
+
+
+
+
