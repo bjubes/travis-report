@@ -8,11 +8,14 @@ $(document).ready(function(){
 
 	var jsonResponse = null;
 	var skipIfPassing = true;
+	var newTab = false;
 	//request settings from chrome
 	chrome.storage.sync.get({
-	  failedOnly: true
+	  failedOnly: true,
+	  newTab: false
 	}, function(settings) {
 		skipIfPassing = settings.failedOnly;
+		newTab = settings.newTab;
 	});
 
 	$.ajax({
@@ -49,7 +52,7 @@ $(document).ready(function(){
 
 			$(".discussion-timeline-actions").last().prepend(
 				`<div class="timeline-comment-wrapper">
-					<img alt="TravisReport" class="timeline-comment-avatar" height="44" src="//i.imgur.com/ys0fq1b.png" width="44"> 
+					<img alt="TravisReport" class="timeline-comment-avatar" height="44" src="https://raw.githubusercontent.com/bjubes/travis-report/master/images/icon.png" width="44"> 
 					<div class="branch-action-body simple-box markdown-body comment timeline-comment timeline-new-comment">
 
 					<div class="timeline-comment-header travis-report-header" style="
@@ -88,7 +91,7 @@ $(document).ready(function(){
 				console.log("test");
 				tdata = travisData[i];
 				$("#travis-report").append(
-					'<tr href="' + travisJobsBaseUrl + data["job_id"] + '"><th><a href="' + travisJobsBaseUrl + tdata["job_id"] +'">' + tdata["job"] + '</th> <th class="' + tdata["state"] + '">' + tdata["state"] + '</th> <th>' + YesorNo(tdata["allow_failure"]) + '</th></tr>'
+					'<tr href="' + travisJobsBaseUrl + data["job_id"] + '"><th><a href="' + travisJobsBaseUrl + tdata["job_id"] +'" ' + NewTabLink(newTab) +' >' + tdata["job"] + '</th> <th class="' + tdata["state"] + '">' + tdata["state"] + '</th> <th>' + YesorNo(tdata["allow_failure"]) + '</th></tr>'
 				)
 			}
 
@@ -112,5 +115,13 @@ function YesorNo (bool) {
 	}
 	else {
 		return "No";
+	}
+}
+
+function NewTabLink(newTab) {
+	if (newTab) {
+		return 'target="_blank"'
+	} else {
+		return "";
 	}
 }

@@ -1,8 +1,10 @@
 // Saves options to chrome.storage
 function save_options() {
   var failedOnly = document.getElementById('failed_only').checked;
+  var newTab = document.getElementById('link_new_tab').checked;
   chrome.storage.sync.set({
-    failedOnly: failedOnly
+    failedOnly: failedOnly,
+    newTab: newTab
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -18,9 +20,12 @@ function save_options() {
 function restore_options() {
   // Use default values given if non exist
   chrome.storage.sync.get({
-    failedOnly: true
+    failedOnly: true,
+    newTab: false
   }, function(items) {
     document.getElementById('failed_only').checked = items.failedOnly;
+    document.getElementById('link_new_tab').checked = items.newTab;
+
   });
 }
 
