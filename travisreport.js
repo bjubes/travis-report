@@ -48,10 +48,9 @@ $(document).ready(function(){
 			if (!failedBuild && skipIfPassing) {
 					return;
 			}
+
 			var message =  failedBuild ? "One or more tests have failed:" : "Everythings looking good!"
-
 			$(".discussion-timeline-actions").last().prepend(outerHTML(message));
-
 			$("#travis-report").append(
 				`<tr>
 				    <th>Job</th>
@@ -93,7 +92,7 @@ function YesorNo (bool) {
 
 function NewTabLink(newTab) {
 	if (newTab) {
-		return 'target="_blank"'
+		return 'target="_blank" rel="noopener noreferrer"'
 	} else {
 		return "";
 	}
