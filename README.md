@@ -1,5 +1,6 @@
 # Travis Report
 A google chrome extension that shows the status of each travis environment for a github PR.
+[Free on the Chrome Web Store](https://chrome.google.com/webstore/detail/travis-report/gblepohelngokmofifackhdmojachdpk)
 
 ##Installation
 1. Install Google Chrome and unzip travis-report
