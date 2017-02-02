@@ -3,7 +3,7 @@
   "version" : "1.0.1",
   "manifest_version" : 2,
   "permissions" : [
-    "tabs", "storage", "*://github.com/*",
+    "storage", "*://github.com/*",
     "*://travis-ci.org/*", "*://travis-ci.com/*"
   ],
  "icons": { "16": "images/icon.png",
