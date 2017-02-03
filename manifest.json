@@ -2,6 +2,8 @@
   "name": "Travis Report",
   "version" : "1.0.2",
   "manifest_version" : 2,
+  "homepage_url": "https://github.com/tulios/json-viewer",
+  "description": "INSERT DESC HERE!",
   "permissions" : [
     "storage", "*://github.com/*",
     "*://travis-ci.org/*", "*://travis-ci.com/*"
@@ -14,7 +16,8 @@
     {
       "matches": ["*://github.com/*/pull/*"],
       "js": ["frameworks/jquery.js", "travisreport.js"],
-      "css": ["style.css"]
+      "css": ["style.css"],
+      "run_at": "document_start"
     }
   ]
 }
