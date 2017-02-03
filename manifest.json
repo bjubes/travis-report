@@ -12,7 +12,7 @@
   "options_page": "options/options.html",
   "content_scripts": [
     {
-      "matches": ["*://github.com/*"],
+      "matches": ["*://github.com/*/pull/*"],
       "js": ["frameworks/jquery.js", "travisreport.js"],
       "css": ["style.css"]
     }
