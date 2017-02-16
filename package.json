@@ -1,0 +1,28 @@
+{
+  "name": "travis-report",
+  "version": "1.0.3",
+  "description": "A google chrome extension that shows the status of each travis environment for a github PR Edit",
+  "main": "manifest.json",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bjubes/travis-report.git"
+  },
+  "keywords": [
+    "travis",
+    "CI",
+    "github",
+    "chrome",
+    "extension",
+    "developer",
+    "dev-tool"
+  ],
+  "author": "Brian Jubelirer <brian2386@gmail.com> (bjubes)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bjubes/travis-report/issues"
+  },
+  "homepage": "https://github.com/bjubes/travis-report#readme"
+}
