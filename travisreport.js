@@ -1,8 +1,16 @@
-$(document).ready(function(){
+$(document).ready(main());
+setInterval(function(){
+	if (document.getElementById("travis-report")== null) {
+		main();
+		console.log("reset");
+	}
+}, 1500);
+
+function main() {
 	var travisUrl = $("td").find(".commit-build-statuses").last().find("a").attr("href");
 	if (travisUrl == null) {
 		console.log("TravisReport: No build found.")
-		return;
+		return false;
 	}
 	var travisBuildNumber = travisUrl.match(/\d+/g);
 	var travisAPIUrl = "https://api.travis-ci.org/builds/" + travisBuildNumber;
@@ -79,9 +87,8 @@ $(document).ready(function(){
             window.location = href;
         }
     });
-
-
-});
+	return true
+}
 
 function YesorNo (bool) {
 	if (bool) {
