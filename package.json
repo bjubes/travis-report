@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/bjubes/travis-report/issues"
   },
-  "homepage": "https://github.com/bjubes/travis-report#readme"
+  "homepage": "https://github.com/bjubes/travis-report#readme",
+  "devDependencies": {
+    "chrome-webstore-upload-cli": "^1.1.1"
+  }
 }
