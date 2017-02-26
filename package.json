@@ -4,7 +4,8 @@
   "description": "A google chrome extension that shows the status of each travis environment for a github PR Edit",
   "main": "manifest.json",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "zip -jr travis-report.zip"
   },
   "repository": {
     "type": "git",
