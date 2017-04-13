@@ -1,6 +1,6 @@
 {
   "name": "travis-report",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A google chrome extension that shows the status of each travis environment for a github PR Edit",
   "main": "manifest.json",
   "scripts": {
