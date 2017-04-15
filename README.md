@@ -5,10 +5,10 @@ A google chrome extension that shows the status of each travis environment for a
 
 ![Travis Report](http://i.imgur.com/avA8qNp.png)
 
-##How it works
+## How it works
 On any Github PR that uses travis for integration testing, Travis Report will give a rundown of each Enivronment and whether it it is failing or not. This allows users to see what has failed without ever leaving Github. Clicking an environment goes straight to its build page.
 
-##Installation
+## Installation
 Install the latest stable version from the [Chrome Web Store](https://chrome.google.com/webstore/detail/travis-report/gblepohelngokmofifackhdmojachdpk) or install from github using the steps below
 
 1. Install Google Chrome
