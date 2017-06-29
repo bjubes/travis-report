@@ -60,7 +60,7 @@ function main() {
 					return;
 			}
 
-			var message =  failedBuild ? "One or more tests have failed:" : "Everythings looking good!"
+			var message =  failedBuild ? "One or more tests have failed:" : "Everything is looking good!"
 			$(".discussion-timeline-actions").last().prepend(outerHTML(message));
 			$("#travis-report").append(
 				`<tr>
